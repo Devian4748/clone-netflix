@@ -15,7 +15,6 @@ const DefinedGlobalStyle = createGlobalStyle`
     font-family: sans-serif;
     color : ${props => props.theme.white.darker};
     background-color: #000;
-    overflow: hidden;
   }
 
   a {

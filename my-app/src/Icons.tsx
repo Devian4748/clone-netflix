@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 const Logo = styled(motion.svg)`
   margin-right: 5rem;
-  width: 9.5rem;
-  height: 2.5rem;
+  width: 13rem;
+  height: 5rem;
 
   fill: ${props => props.theme.red};
   path {
@@ -31,6 +31,7 @@ export const NetflixLogo = () => {
       variants={logoVariants}
       whileHover='active'
       initial='normal'
+      animate='normal'
       xmlns='http://www.w3.org/2000/svg'
       width='1024'
       height='276.742'
@@ -67,5 +68,67 @@ export const SearchIcon: React.FC<ISearchIcon> = ({ onClick, searchOpen }) => {
         />
       </motion.svg>
     </>
+  );
+};
+
+const Icon = styled.svg`
+  width: 36px;
+  height: 10rem;
+  cursor: pointer;
+  z-index: 1;
+  top: 55%;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+
+  &:hover {
+    color: ${props => props.theme.white.lighter};
+  }
+`;
+
+const LeftIcon = styled(Icon)`
+  position: absolute;
+  left: 1%;
+`;
+
+const RightIcon = styled(Icon)`
+  position: absolute;
+  right: 2%;
+`;
+
+interface ILeftArrow {
+  onClickDec: () => void;
+}
+export const LeftArrow = ({ onClickDec }: ILeftArrow) => {
+  return (
+    <LeftIcon
+      onClick={onClickDec}
+      xmlns='http://www.w3.org/2000/svg'
+      className='h-6 w-6'
+      fill='none'
+      viewBox='0 0 24 24'
+      stroke='currentColor'
+      strokeWidth={2}
+    >
+      <path strokeLinecap='round' strokeLinejoin='round' d='M15 19l-7-7 7-7' />
+    </LeftIcon>
+  );
+};
+
+interface IRightArrow {
+  onClickInc: () => void;
+}
+export const RightArrow = ({ onClickInc }: IRightArrow) => {
+  return (
+    <RightIcon
+      onClick={onClickInc}
+      xmlns='http://www.w3.org/2000/svg'
+      className='h-6 w-6'
+      fill='none'
+      viewBox='0 0 24 24'
+      stroke='currentColor'
+      strokeWidth={2}
+    >
+      <path strokeLinecap='round' strokeLinejoin='round' d='M9 5l7 7-7 7' />
+    </RightIcon>
   );
 };
