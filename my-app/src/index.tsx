@@ -16,11 +16,13 @@ const client = new QueryClient();
 
 root.render(
   <RecoilRoot>
-    <QueryClientProvider client={client}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <App />
-      </ThemeProvider>
-    </QueryClientProvider>
+    <>
+      <QueryClientProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <App />
+        </ThemeProvider>
+      </QueryClientProvider>
+    </>
   </RecoilRoot>
 );
